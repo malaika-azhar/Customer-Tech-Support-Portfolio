@@ -6,6 +6,8 @@
 
 Customer Scripts · Escalation Notes · Decision Paths · Update Flows
 
+⬅️ **[Back to Portfolio](../README.md)**
+
 ![Scripts](https://img.shields.io/badge/Scripts-5-2C3E70?style=for-the-badge)
 ![Scenarios](https://img.shields.io/badge/Scenarios-DNS_%7C_VPN_%7C_Email_%7C_Printer_%7C_WiFi-6f42c1?style=for-the-badge)
 ![Priority](https://img.shields.io/badge/Priority-P1_%2F_P2-C8102E?style=for-the-badge)
@@ -104,14 +106,17 @@ flowchart LR
 <a id="which-script"></a>
 ## 🧭 Which Script to Use
 
+Start from the problem the customer reports and follow the line to the right script.
+
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 40, "rankSpacing": 90}}}%%
 flowchart LR
     A{"What is<br>not working?"}
-    A -->|Website unreachable| B["05.1<br>Website Down"]
-    A -->|VPN keeps locking| C["05.2<br>VPN Lockout"]
-    A -->|Email is missing| D["05.3<br>Email Failure"]
-    A -->|Printing stopped| E["05.4<br>Printers"]
-    A -->|WiFi has no internet| F["05.5<br>WiFi and DHCP"]
+    A -->|Website| B["05.1<br>Website Down"]
+    A -->|VPN| C["05.2<br>VPN Lockout"]
+    A -->|Email| D["05.3<br>Email Failure"]
+    A -->|Printing| E["05.4<br>Printers"]
+    A -->|WiFi| F["05.5<br>WiFi and DHCP"]
     classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
     classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
     classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
@@ -126,16 +131,23 @@ flowchart LR
     class F navy;
 ```
 
+&nbsp;
+
 ---
 
 <a id="support-tiers"></a>
 ## 🏢 Support Tiers
 
+This shows who owns what: support handles the customer, the specialist team handles the fix.
+
 ```mermaid
-flowchart LR
-    A(["Customer<br>contacts support"]) --> B["Tier 1: first reply,<br>scope, basic checks"] --> C{"Can Tier 1<br>fix it?"}
+%%{init: {"flowchart": {"nodeSpacing": 50, "rankSpacing": 60}}}%%
+flowchart TD
+    A(["Customer contacts support"]) --> B["Tier 1: first reply,<br>scope, basic checks"]
+    B --> C{"Can Tier 1<br>fix it?"}
     C -->|Yes| D["Fix, verify<br>and close"]
-    C -->|No| E["Escalate with note<br>to specialist team"] --> F["Specialist fixes,<br>support updates customer"]
+    C -->|No| E["Escalate with note<br>to specialist team"]
+    E --> F["Specialist fixes,<br>support updates customer"]
     classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
     classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
     classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
@@ -284,6 +296,6 @@ Real priority rules depend on the company.
 
 <div align="center">
 
-🛠️ **[Escalation Flow](#escalation-flow)** · 📂 **[The Five Scripts](#the-five-scripts)**
+⬅️ **[Back to Portfolio](../README.md)** · 🛠️ **[Escalation Flow](#escalation-flow)** · 📂 **[The Five Scripts](#the-five-scripts)**
 
 </div>
