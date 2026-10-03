@@ -43,6 +43,7 @@ Each guide explains what is happening, gives numbered self-help steps with a "wh
 ## 🧭 Which Guide Do I Need?
 
 ```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 28, 'padding': 6}}}%%
 flowchart TD
     A(["❓ What is your problem?"]):::start --> B["Websites will not load<br/>but WiFi says connected"]:::step
     A --> C["I can receive email<br/>but cannot send"]:::step
@@ -55,9 +56,9 @@ flowchart TD
     E --> E1(["🖨 04.4 Printer Guide"]):::fix
     F --> F1(["🔑 04.5 Password Reset Guide"]):::fix
 
-    classDef start fill:#943126,stroke:#571C16,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef step fill:#1A5276,stroke:#0B2E43,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef fix fill:#117864,stroke:#083D33,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef start fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef step fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef fix fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF,font-weight:bold
 ```
 
 > [!TIP]
