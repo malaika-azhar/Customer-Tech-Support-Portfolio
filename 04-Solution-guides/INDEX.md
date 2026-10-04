@@ -7,20 +7,36 @@ Customer-friendly, step-by-step guides for the five most common support problems
 ## 🗺️ Folder Map
 
 ```mermaid
-%%{init: {'themeVariables': {'fontSize': '12px'}, 'flowchart': {'nodeSpacing': 15, 'rankSpacing': 20, 'padding': 4}}}%%
-flowchart TD
-    R(["📘 Solution Guides"]):::root --> G1["📶 WiFi"]:::g1
-    R --> G2["📧 Email"]:::g2
-    R --> G3["🔐 VPN"]:::g3
-    R --> G4["🖨 Printer"]:::g4
-    R --> G5["🔑 Password"]:::g5
+%%{init: {'flowchart': {'curve': 'step', 'nodeSpacing': 30, 'rankSpacing': 60, 'padding': 12}}}%%
+flowchart LR
+    R["<b>Solution Guides</b>"]
 
-    classDef root fill:#943126,stroke:#571C16,stroke-width:1px,color:#FFFFFF
-    classDef g1 fill:#1A5276,stroke:#0B2E43,stroke-width:1px,color:#FFFFFF
-    classDef g2 fill:#B9770E,stroke:#6E4409,stroke-width:1px,color:#FFFFFF
-    classDef g3 fill:#117864,stroke:#083D33,stroke-width:1px,color:#FFFFFF
-    classDef g4 fill:#2C3E70,stroke:#131B3A,stroke-width:1px,color:#FFFFFF
-    classDef g5 fill:#76448A,stroke:#432752,stroke-width:1px,color:#FFFFFF
+    G1["<b>04.1</b> &nbsp;|&nbsp; WiFi"]
+    G2["<b>04.2</b> &nbsp;|&nbsp; Email"]
+    G3["<b>04.3</b> &nbsp;|&nbsp; VPN"]
+    G4["<b>04.4</b> &nbsp;|&nbsp; Printer"]
+    G5["<b>04.5</b> &nbsp;|&nbsp; Password Reset"]
+
+    R --> G1
+    R --> G2
+    R --> G3
+    R --> G4
+    R --> G5
+
+    classDef root fill:#1E1B4B,stroke:#818CF8,stroke-width:4px,color:#ffffff
+    classDef g1 fill:#FFFFFF,stroke:#1A5276,stroke-width:4px,color:#1E1B4B
+    classDef g2 fill:#FFFFFF,stroke:#B9770E,stroke-width:4px,color:#1E1B4B
+    classDef g3 fill:#FFFFFF,stroke:#117864,stroke-width:4px,color:#1E1B4B
+    classDef g4 fill:#FFFFFF,stroke:#2C3E70,stroke-width:4px,color:#1E1B4B
+    classDef g5 fill:#FFFFFF,stroke:#76448A,stroke-width:4px,color:#1E1B4B
+
+    class R root
+    class G1 g1
+    class G2 g2
+    class G3 g3
+    class G4 g4
+    class G5 g5
+    linkStyle 0,1,2,3,4 stroke:#64748B,stroke-width:2px
 ```
 
 ---
