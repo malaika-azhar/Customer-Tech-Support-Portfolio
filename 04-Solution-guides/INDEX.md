@@ -4,44 +4,40 @@ Customer-friendly, step-by-step guides for the five most common support problems
 
 ---
 
-## 🗺️ Folder Map
+## 🗺️ Which Guide Do I Need?
 
 ```mermaid
-%%{init: {'flowchart': {'curve': 'step', 'nodeSpacing': 30, 'rankSpacing': 70, 'padding': 14}}}%%
-flowchart LR
-    R["<b>Solution Guides</b>"]
+%%{init: {'flowchart': {'curve': 'linear', 'nodeSpacing': 50, 'rankSpacing': 35, 'padding': 14}}}%%
+flowchart TD
+    S(("Start")) --> Q1{{"WiFi connected,<br/>no internet?"}}
+    Q1 -- Yes --> A1(["04.1 WiFi Guide"])
+    Q1 -- No --> Q2{{"Email will<br/>not send?"}}
+    Q2 -- Yes --> A2(["04.2 Email Guide"])
+    Q2 -- No --> Q3{{"VPN authentication<br/>failed?"}}
+    Q3 -- Yes --> A3(["04.3 VPN Guide"])
+    Q3 -- No --> Q4{{"Printer<br/>shows offline?"}}
+    Q4 -- Yes --> A4(["04.4 Printer Guide"])
+    Q4 -- No --> Q5{{"Locked out or<br/>forgot password?"}}
+    Q5 -- Yes --> A5(["04.5 Password Guide"])
+    Q5 -- No --> E["Contact Support"]
 
-    G1["<b>04.1</b> &nbsp;|&nbsp; WiFi"]
-    G2["<b>04.2</b> &nbsp;|&nbsp; Email"]
-    G3["<b>04.3</b> &nbsp;|&nbsp; VPN"]
-    G4["<b>04.4</b> &nbsp;|&nbsp; Printer"]
-    G5["<b>04.5</b> &nbsp;|&nbsp; Password Reset"]
+    classDef start fill:#111827,stroke:#111827,color:#FFFFFF
+    classDef q fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px,color:#78350F
+    classDef a1 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#1E3A8A
+    classDef a2 fill:#FFEDD5,stroke:#EA580C,stroke-width:2px,color:#7C2D12
+    classDef a3 fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#064E3B
+    classDef a4 fill:#E0E7FF,stroke:#4F46E5,stroke-width:2px,color:#312E81
+    classDef a5 fill:#FCE7F3,stroke:#DB2777,stroke-width:2px,color:#831843
+    classDef end1 fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#7F1D1D
 
-    R --> G1
-    R --> G2
-    R --> G3
-    R --> G4
-    R --> G5
-
-    classDef root fill:#312E81,stroke:#A5B4FC,stroke-width:4px,color:#FFFFFF
-    classDef g1 fill:#0284C7,stroke:#075985,stroke-width:3px,color:#FFFFFF
-    classDef g2 fill:#D97706,stroke:#92400E,stroke-width:3px,color:#FFFFFF
-    classDef g3 fill:#059669,stroke:#065F46,stroke-width:3px,color:#FFFFFF
-    classDef g4 fill:#6366F1,stroke:#4338CA,stroke-width:3px,color:#FFFFFF
-    classDef g5 fill:#EC4899,stroke:#BE185D,stroke-width:3px,color:#FFFFFF
-
-    class R root
-    class G1 g1
-    class G2 g2
-    class G3 g3
-    class G4 g4
-    class G5 g5
-
-    linkStyle 0 stroke:#0EA5E9,stroke-width:3px
-    linkStyle 1 stroke:#F59E0B,stroke-width:3px
-    linkStyle 2 stroke:#10B981,stroke-width:3px
-    linkStyle 3 stroke:#6366F1,stroke-width:3px
-    linkStyle 4 stroke:#EC4899,stroke-width:3px
+    class S start
+    class Q1,Q2,Q3,Q4,Q5 q
+    class A1 a1
+    class A2 a2
+    class A3 a3
+    class A4 a4
+    class A5 a5
+    class E end1
 ```
 
 ---
