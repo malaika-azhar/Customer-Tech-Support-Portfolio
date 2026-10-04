@@ -7,25 +7,20 @@ Customer-friendly, step-by-step guides for the five most common support problems
 ## 🗺️ Folder Map
 
 ```mermaid
-flowchart LR
-    R(["📘 04 Solution Guides"]):::root --> G1["📶 04.1 WiFi"]:::g1
-    R --> G2["📧 04.2 Email"]:::g2
-    R --> G3["🔐 04.3 VPN"]:::g3
-    R --> G4["🖨 04.4 Printer"]:::g4
-    R --> G5["🔑 04.5 Password"]:::g5
-    G1 --> S1["Connected, no internet"]:::sym
-    G2 --> S2["Cannot send email"]:::sym
-    G3 --> S3["Authentication failed"]:::sym
-    G4 --> S4["Printer offline"]:::sym
-    G5 --> S5["Locked out"]:::sym
+%%{init: {'themeVariables': {'fontSize': '12px'}, 'flowchart': {'nodeSpacing': 15, 'rankSpacing': 20, 'padding': 4}}}%%
+flowchart TD
+    R(["📘 Solution Guides"]):::root --> G1["📶 WiFi"]:::g1
+    R --> G2["📧 Email"]:::g2
+    R --> G3["🔐 VPN"]:::g3
+    R --> G4["🖨 Printer"]:::g4
+    R --> G5["🔑 Password"]:::g5
 
-    classDef root fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef g1 fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef g2 fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef g3 fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef g4 fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef g5 fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef sym fill:#707B7C,stroke:#424949,stroke-width:2px,color:#FFFFFF
+    classDef root fill:#943126,stroke:#571C16,stroke-width:1px,color:#FFFFFF
+    classDef g1 fill:#1A5276,stroke:#0B2E43,stroke-width:1px,color:#FFFFFF
+    classDef g2 fill:#B9770E,stroke:#6E4409,stroke-width:1px,color:#FFFFFF
+    classDef g3 fill:#117864,stroke:#083D33,stroke-width:1px,color:#FFFFFF
+    classDef g4 fill:#2C3E70,stroke:#131B3A,stroke-width:1px,color:#FFFFFF
+    classDef g5 fill:#76448A,stroke:#432752,stroke-width:1px,color:#FFFFFF
 ```
 
 ---
