@@ -29,9 +29,9 @@ Five escalation scripts for common support problems. Each one shows what to say 
 3. [Project Background](#project-background)
 4. [Escalation Flow](#escalation-flow)
 5. [Which Script to Use](#which-script)
-6. [Support Tiers](#support-tiers)
-7. [Quick Check Table](#quick-check)
-8. [Customer Communication Timeline](#comm-timeline)
+6. [Quick Check Table](#quick-check)
+7. [Customer Communication Timeline](#comm-timeline)
+8. [Support Tiers](#support-tiers)
 9. [What Every Escalation Note Contains](#note-contents)
 10. [Rules Used in All Five Scripts](#rules)
 11. [Priority Used in These Scripts](#priority)
@@ -85,8 +85,9 @@ The DNS script (05.1) connects to the real lab ticket in [02.1 DNS Ticket](../02
 All five scripts follow the same flow.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 10}, "themeVariables": {"fontSize": "14px"}}}%%
 flowchart LR
-    A(["Report received"]) --> B["First reply<br>with update time"] --> C["Check scope<br>and evidence"] --> D["Escalate<br>with note"] --> E["Update on<br>promised time"] --> F(["Fix confirmed<br>Ticket closed"])
+    A(["Report received"]) --> B["First reply"] --> C["Check evidence"] --> D["Escalate"] --> E["Update"] --> F(["Closed"])
     classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
     classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
     classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
@@ -109,14 +110,14 @@ flowchart LR
 Start from the problem the customer reports and follow the line to the right script.
 
 ```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 40, "rankSpacing": 90}}}%%
-flowchart LR
-    A{"What is<br>not working?"}
-    A -->|Website| B["05.1<br>Website Down"]
-    A -->|VPN| C["05.2<br>VPN Lockout"]
-    A -->|Email| D["05.3<br>Email Failure"]
-    A -->|Printing| E["05.4<br>Printers"]
-    A -->|WiFi| F["05.5<br>WiFi and DHCP"]
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 10}, "themeVariables": {"fontSize": "14px"}}}%%
+flowchart TD
+    A{"What is not working?"}
+    A -->|Website| B["05.1 Website"]
+    A -->|VPN| C["05.2 VPN"]
+    A -->|Email| D["05.3 Email"]
+    A -->|Printing| E["05.4 Printers"]
+    A -->|WiFi| F["05.5 WiFi"]
     classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
     classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
     classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
@@ -130,40 +131,6 @@ flowchart LR
     class E green;
     class F navy;
 ```
-
-&nbsp;
-
----
-
-<a id="support-tiers"></a>
-## 🏢 Support Tiers
-
-This shows who owns what: support handles the customer, the specialist team handles the fix.
-
-```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 50, "rankSpacing": 60}}}%%
-flowchart TD
-    A(["Customer contacts support"]) --> B["Tier 1: first reply,<br>scope, basic checks"]
-    B --> C{"Can Tier 1<br>fix it?"}
-    C -->|Yes| D["Fix, verify<br>and close"]
-    C -->|No| E["Escalate with note<br>to specialist team"]
-    E --> F["Specialist fixes,<br>support updates customer"]
-    classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
-    classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
-    classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
-    classDef orange fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF;
-    classDef green fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF;
-    classDef navy fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF;
-    class A blue;
-    class B red;
-    class C purple;
-    class D green;
-    class E orange;
-    class F navy;
-```
-
-- **Support keeps the customer.** Even after escalation, the support agent owns the customer updates. The specialist team owns the fix.
-- Tier and team names differ between companies.
 
 ---
 
@@ -189,6 +156,36 @@ flowchart TD
 | Evidence update | When the checks show something | What was found, said as "points to" until confirmed, and what happens next | Script 2 |
 | Fix update | When a fix or exception is in place | What was done, how long it lasts, what the customer should do | Script 3 |
 | Resolution | After the fix is confirmed by tests | What was tested, what is still open, who to call if it returns | Script 4 |
+
+---
+
+<a id="support-tiers"></a>
+## 🏢 Support Tiers
+
+This shows who owns what: support handles the customer, the specialist team handles the fix.
+
+```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 10}, "themeVariables": {"fontSize": "14px"}}}%%
+flowchart LR
+    A(["Customer contacts"]) --> B["Tier 1 checks"] --> C{"Tier 1 can fix?"}
+    C -->|Yes| D["Fix and close"]
+    C -->|No| E["Escalate"] --> F["Specialist fix"]
+    classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
+    classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
+    classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
+    classDef orange fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF;
+    classDef green fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF;
+    classDef navy fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF;
+    class A blue;
+    class B red;
+    class C purple;
+    class D green;
+    class E orange;
+    class F navy;
+```
+
+- **Support keeps the customer.** Even after escalation, the support agent owns the customer updates. The specialist team owns the fix.
+- Tier and team names differ between companies.
 
 ---
 
