@@ -7,7 +7,7 @@ Customer-friendly, step-by-step guides for the five most common support problems
 ## 🗺️ Folder Map
 
 ```mermaid
-%%{init: {'flowchart': {'curve': 'step', 'nodeSpacing': 30, 'rankSpacing': 60, 'padding': 12}}}%%
+%%{init: {'flowchart': {'curve': 'step', 'nodeSpacing': 30, 'rankSpacing': 70, 'padding': 14}}}%%
 flowchart LR
     R["<b>Solution Guides</b>"]
 
@@ -23,12 +23,12 @@ flowchart LR
     R --> G4
     R --> G5
 
-    classDef root fill:#1E1B4B,stroke:#818CF8,stroke-width:4px,color:#ffffff
-    classDef g1 fill:#FFFFFF,stroke:#1A5276,stroke-width:4px,color:#1E1B4B
-    classDef g2 fill:#FFFFFF,stroke:#B9770E,stroke-width:4px,color:#1E1B4B
-    classDef g3 fill:#FFFFFF,stroke:#117864,stroke-width:4px,color:#1E1B4B
-    classDef g4 fill:#FFFFFF,stroke:#2C3E70,stroke-width:4px,color:#1E1B4B
-    classDef g5 fill:#FFFFFF,stroke:#76448A,stroke-width:4px,color:#1E1B4B
+    classDef root fill:#312E81,stroke:#A5B4FC,stroke-width:4px,color:#FFFFFF
+    classDef g1 fill:#0284C7,stroke:#075985,stroke-width:3px,color:#FFFFFF
+    classDef g2 fill:#D97706,stroke:#92400E,stroke-width:3px,color:#FFFFFF
+    classDef g3 fill:#059669,stroke:#065F46,stroke-width:3px,color:#FFFFFF
+    classDef g4 fill:#6366F1,stroke:#4338CA,stroke-width:3px,color:#FFFFFF
+    classDef g5 fill:#EC4899,stroke:#BE185D,stroke-width:3px,color:#FFFFFF
 
     class R root
     class G1 g1
@@ -36,7 +36,12 @@ flowchart LR
     class G3 g3
     class G4 g4
     class G5 g5
-    linkStyle 0,1,2,3,4 stroke:#64748B,stroke-width:2px
+
+    linkStyle 0 stroke:#0EA5E9,stroke-width:3px
+    linkStyle 1 stroke:#F59E0B,stroke-width:3px
+    linkStyle 2 stroke:#10B981,stroke-width:3px
+    linkStyle 3 stroke:#6366F1,stroke-width:3px
+    linkStyle 4 stroke:#EC4899,stroke-width:3px
 ```
 
 ---
