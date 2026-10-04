@@ -21,13 +21,41 @@ Find a script by number, symptom, team, check or section
 
 ## 📑 Table of Contents
 
-1. [All Scripts](#all-scripts)
-2. [Find by Symptom](#by-symptom)
-3. [Find by Team](#by-team)
-4. [Find by Check or Command](#by-check)
-5. [Jump to a Section](#by-section)
-6. [Contents of Each Script](#contents)
-7. [Related Work](#related)
+1. [How to Use This Index](#how-to-use)
+2. [All Scripts](#all-scripts)
+3. [Find by Symptom](#by-symptom)
+4. [Find by Team](#by-team)
+5. [Find by Check or Command](#by-check)
+6. [Jump to a Section](#by-section)
+7. [Contents of Each Script](#contents)
+8. [Related Work](#related)
+
+---
+
+<a id="how-to-use"></a>
+## 🧭 How to Use This Index
+
+```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 10}, "themeVariables": {"fontSize": "14px"}}}%%
+flowchart LR
+    A(["Problem reported"]) --> B["Find symptom"] --> C["Open script"] --> D["Send first reply"] --> E["Run checks"] --> F(["Escalate"])
+    classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
+    classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
+    classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
+    classDef orange fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF;
+    classDef green fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF;
+    classDef navy fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF;
+    class A blue;
+    class B red;
+    class C purple;
+    class D orange;
+    class E green;
+    class F navy;
+```
+
+1. Find the problem in **Find by Symptom**.
+2. Open the script and send the first reply from **Customer Scripts**.
+3. Run the checks, then copy the **Escalation Note** into the ticket.
 
 ---
 
@@ -115,6 +143,26 @@ Find a script by number, symptom, team, check or section
 | **Total** | **20** | **25** | **10** | **29** |
 
 Every script has the same parts: Escalation Record, Project Background, Escalation Flow, When to Escalate, Customer Scripts, Internal Escalation Note, Decision Path, Project Summary, Common Mistakes & Fixes, Scope & Limitations, What I Learned and Skills Demonstrated.
+
+### Inside Each Script
+
+```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 10}, "themeVariables": {"fontSize": "14px"}}}%%
+flowchart LR
+    A(["Record"]) --> B["Customer scripts"] --> C["Checks"] --> D["Escalation note"] --> E["Decision path"] --> F(["Mistakes"])
+    classDef blue fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF;
+    classDef red fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF;
+    classDef purple fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF;
+    classDef orange fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF;
+    classDef green fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF;
+    classDef navy fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF;
+    class A blue;
+    class B red;
+    class C purple;
+    class D orange;
+    class E green;
+    class F navy;
+```
 
 ---
 
