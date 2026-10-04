@@ -7,19 +7,19 @@
 Five screen-recording scripts for common IT support issues, each written to be read aloud while the fix is shown on screen — from spotting the symptom, to the fix, to the words used with the customer.
 
 ![DNS](https://img.shields.io/badge/DNS-Resolution-005EB8?style=for-the-badge)
-![Email](https://img.shields.io/badge/Email-SMTP-0078D4?style=for-the-badge&logo=microsoftoutlook&logoColor=white)
+![Email](https://img.shields.io/badge/Email-SMTP-0A84FF?style=for-the-badge&logo=thunderbird&logoColor=white)
 ![VPN](https://img.shields.io/badge/VPN-Authentication-6f42c1?style=for-the-badge)
 ![Printer](https://img.shields.io/badge/Printer-Offline-E95420?style=for-the-badge)
 ![WiFi](https://img.shields.io/badge/WiFi-Connectivity-117864?style=for-the-badge)
 ![Windows](https://img.shields.io/badge/Endpoint-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Cost](https://img.shields.io/badge/Cost-Free_%26_Built--In_Tools-2ea44f?style=for-the-badge)
+![Cost](https://img.shields.io/badge/Cost-Free-2ea44f?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Scripts-5_of_5-brightgreen?style=for-the-badge)
 
 Five issues, one repeatable method: find the layer that is failing, fix one thing at a time, prove the fix, and keep the customer informed. Every script follows the same structure.
 
 ### [📂 Jump to the scripts](#scripts-index)
 
-### [📑 Open the visual index](INDEX.md)
+### [📑 Open the visual index](../INDEX.md)
 
 </div>
 
@@ -52,20 +52,20 @@ Five issues, one repeatable method: find the layer that is failing, fix one thin
 
 | 📄 Scripts | 🧩 Topics | 🧱 Sections per Script | 👤 Customer Scenarios |
 |:---:|:---:|:---:|:---:|
-| **5** | **5** | **10** | **5** |
+| **5** | **5** | **17** | **5** |
 
 ---
 
 <a id="about"></a>
 ## 📖 About This Folder
 
-This folder holds five short video scripts for common IT support tickets. Each script is written so it can be read aloud during a screen recording. Every script uses the same ten sections: title, introduction, issue identification, visual decision path, troubleshooting steps, verification, customer interaction, tools used, lessons learned and a link to the related lab.
+This folder holds five short video scripts for common IT support tickets. Each script can be read aloud during a screen recording. Every script follows the same structure: At a Glance, Project Background, Environment, Project Flow, three modules (Issue Identification, Resolution & Verification, Customer Interaction), a decision path, a timed video script, summary, Challenges & Fixes, Scope & Limitations, What I Learned, Skills Demonstrated, Screenshot Index and Repo Structure.
 
 - **Network layer (Scripts 1 and 5):** DNS resolution and WiFi connectivity. Find out whether the fault is in name lookup or in the IP address.
 - **Services and access layer (Scripts 2, 3 and 4):** Email sending, VPN authentication and printer offline. Find the setting, account or service that is blocking the user.
 
 > [!NOTE]
-> These are simulated support scenarios. The customer quotes in each script are role-played. Screenshots and lab evidence live in the related lab folder named at the bottom of each script.
+> These are simulated support scenarios. The faults were created on purpose in lab setups, and the customer quotes are role-played. Each script has its own `screenshots/` folder and states what was tested and what is "described, not tested".
 
 <div align="center">
 
@@ -131,7 +131,7 @@ This folder holds five short video scripts for common IT support tickets. Each s
 ![nslookup](https://img.shields.io/badge/nslookup-117864?style=for-the-badge)
 ![ipconfig](https://img.shields.io/badge/ipconfig-76448A?style=for-the-badge)
 ![services.msc](https://img.shields.io/badge/services.msc-B9770E?style=for-the-badge)<br>
-<sub>Built-in Windows tools only, so every script can be repeated on any Windows PC</sub>
+<sub>Mostly built-in Windows tools. Free apps used where needed: Thunderbird (email) and Turbo VPN (VPN)</sub>
 
 </td>
 </tr>
@@ -146,12 +146,12 @@ This folder holds five short video scripts for common IT support tickets. Each s
 
 | Area | Tools Used |
 |---|---|
-| **Endpoint** | Windows PC or laptop, Command Prompt |
-| **Name Resolution** | `ping`, `nslookup`, `ipconfig /flushdns`, Google Public DNS (8.8.8.8) |
-| **IP Configuration** | `ipconfig /all`, `/release`, `/renew` |
-| **Email** | Outlook or Thunderbird settings, SMTP port and authentication |
-| **Identity & Remote Access** | Active Directory account console, VPN client, account unlock tools |
-| **Print** | `services.msc` (Print Spooler), Device Manager, Devices and Printers |
+| **Endpoint** | Windows PC or laptop, Command Prompt, PowerShell |
+| **Name Resolution** | `ping`, `nslookup`, `ipconfig /all`, `ipconfig /flushdns`, Google Public DNS (8.8.8.8) |
+| **IP Configuration** | `ipconfig /all`, `/release`, `/renew`, `netsh interface ip` |
+| **Email** | Thunderbird with a test Gmail account (OAuth2), SMTP port, security and authentication settings, `Test-NetConnection` |
+| **Identity & Remote Access** | Local Windows test account (stand-in for Active Directory), `net user`, `net accounts`, Event Viewer (event 4740), Turbo VPN client |
+| **Print** | `services.msc` (Print Spooler), Print Server Properties, Devices and Printers, PowerShell |
 
 ---
 
@@ -162,14 +162,13 @@ This folder holds five short video scripts for common IT support tickets. Each s
 flowchart LR
     subgraph L1["🔵 NETWORK LAYER"]
         direction LR
-        S1["01.1<br/>DNS Resolution"] --> S5["01.5<br/>WiFi Connectivity"]
+        S1["01.1<br/>DNS Resolution"] ~~~ S5["01.5<br/>WiFi Connectivity"]
     end
     subgraph L2["🟣 SERVICES AND ACCESS LAYER"]
         direction LR
-        S2["01.2<br/>Email Sending"] --> S3["01.3<br/>VPN Connection"]
-        S3 --> S4["01.4<br/>Printer Offline"]
+        S2["01.2<br/>Email Sending"] ~~~ S3["01.3<br/>VPN Connection"] ~~~ S4["01.4<br/>Printer Offline"]
     end
-    S5 ==> S2
+    L1 ~~~ L2
 
     classDef one fill:#e8f1fb,stroke:#005EB8,stroke-width:2px,color:#000
     classDef two fill:#f0eaf8,stroke:#6f42c1,stroke-width:2px,color:#000
@@ -177,7 +176,7 @@ flowchart LR
     class S2,S3,S4 two
 ```
 
-<p align="center"><em>Scripts keep their numbered file order (01.1 to 01.5). The two groups show which layer each script belongs to.</em></p>
+<p align="center"><em>The two groups show which layer each script belongs to. The scripts are independent, so they can be read in any order. Files keep their numbered order (01.1 to 01.5).</em></p>
 
 ---
 
@@ -190,7 +189,7 @@ flowchart TD
     Start --> A["Sites won't load,<br/>but ping to an IP works"]:::q
     Start --> B["Receives email,<br/>can't send"]:::q
     Start --> C["VPN says<br/>Authentication failed"]:::q
-    Start --> D["Printer shows Offline"]:::q
+    Start --> D["Printer shows an error<br/>or Offline"]:::q
     Start --> E["Connected to WiFi,<br/>no internet"]:::q
     A --> S1(["01.1 DNS Resolution"]):::s
     B --> S2(["01.2 Email Sending"]):::s
@@ -212,8 +211,8 @@ flowchart TD
 
 | # | Focus | What the Script Covers | File |
 |:---:|---|---|:---:|
-| **01.1** | DNS Resolution | "Server not found" on every website. Separates a DNS failure from a network outage using a raw IP ping, then clears the DNS cache and tests with `nslookup` and a public DNS. | [📄 Script](./01.1-DNS-Resolution-Issue.md) |
-| **01.5** | WiFi Connectivity | "Connected" but no internet. Reads the IP configuration, finds a self-assigned `169.254.x.x` address, and renews the address from the router with `ipconfig`. | [📄 Script](./01.5-WiFi-Connectivity.md) |
+| **01.1** | DNS Resolution | "Server not found" on every website. Separates a DNS failure from a network outage using a raw IP ping, reads the configured DNS servers with `ipconfig /all`, corrects them, flushes the cache, and tests with `nslookup`. | [📄 Script](./01.1-DNS-Resolution-Issue.md) |
+| **01.5** | WiFi Connectivity | "Connected" but no internet. Reads the IP configuration, finds a `169.254.x.x` address (set by hand to simulate the fault), sets the adapter back to DHCP, renews the address from the router, and tests the gateway and internet with `ping`. | [📄 Script](./01.5-WiFi-Connectivity.md) |
 
 ### Where Name Lookup and Addressing Can Break
 
@@ -240,9 +239,9 @@ flowchart LR
 
 | # | Focus | What the Script Covers | File |
 |:---:|---|---|:---:|
-| **01.2** | Email Sending | Customer can receive mail but not send. Checks the outgoing port and encryption, and turns on outgoing authentication. | [📄 Script](./01.2-Email-Sending-Failure.md) |
-| **01.3** | VPN Connection | "Authentication failed" with the correct password. Rules out a typing issue, finds a locked account, unlocks it, and checks other devices for an old saved password. | [📄 Script](./01.3-VPN-Connection-Failed.md) |
-| **01.4** | Printer Offline | Department cannot print. Checks power and cable, restarts the Print Spooler service, and checks the driver against the printer firmware. | [📄 Script](./01.4-Printer-Offline.md) |
+| **01.2** | Email Sending | Customer can receive mail but not send. Tests which port is reachable (25 failed, 587 worked), sets port 587 with STARTTLS, reads the new error, then sets authentication to OAuth2 and confirms the email arrives. | [📄 Script](./01.2-Email-Sending-Failure.md) |
+| **01.3** | VPN Connection | "Authentication failed" with the correct password. Uses a local Windows test account as a stand-in for Active Directory: finds the locked account, unlocks it, finds the lockout source in the Security log (event 4740), and restores the policy. | [📄 Script](./01.3-VPN-Connection-Failed.md) |
+| **01.4** | Printer Offline | Department cannot print. The lab printer showed "Error" (not "Offline"). Restarts the Print Spooler, checks the driver list, and fixes the printer port. Power, cable and firmware checks are described, not tested. | [📄 Script](./01.4-Printer-Offline.md) |
 
 ### 🔍 Analyst Note — Why the Simple Check Comes First
 
@@ -250,9 +249,9 @@ Every script starts with the cheapest check before touching anything complex. It
 
 ```mermaid
 flowchart TD
-    A["🎫 Ticket received"]:::start --> B["⚡ Cheapest check first<br/>IP ping · inbound mail · cable · manual password"]:::work
+    A["🎫 Ticket received"]:::start --> B["⚡ Cheapest check first<br/>IP ping · inbound mail · printer status · account status"]:::work
     B -->|Fault is here| C["✅ Fix it and verify"]:::good
-    B -->|Fault is not here| D["🔎 Next layer<br/>DNS · SMTP settings · account status · spooler"]:::work
+    B -->|Fault is not here| D["🔎 Next layer<br/>DNS · SMTP settings · lockout source · spooler and port"]:::work
     D -->|Still unresolved| E["📨 Escalate with the evidence collected"]:::bad
 
     classDef start fill:#e8f1fb,stroke:#005EB8,stroke-width:2px,color:#000
@@ -268,11 +267,11 @@ flowchart TD
 
 | 🛡️ Domain | 📌 Where It Appears | ✅ What Is Shown |
 |---|---|---|
-| Name Resolution (DNS) | Script 01.1 | Separating DNS from connectivity, cache flush, DNS testing |
-| IP Addressing (DHCP) | Script 01.5 | Reading `ipconfig`, APIPA address, release and renew |
-| Email (SMTP) | Script 01.2 | Inbound vs outbound, port, encryption, authentication |
-| Identity & Remote Access | Script 01.3 | Account lockout, unlock, old saved passwords |
-| Print Services | Script 01.4 | Print Spooler, driver and firmware check |
+| Name Resolution (DNS) | Script 01.1 | Separating DNS from connectivity, reading the DNS servers, correcting them, cache flush, `nslookup` |
+| IP Addressing (DHCP) | Script 01.5 | Reading `ipconfig`, APIPA-range address (simulated), DHCP, release and renew |
+| Email (SMTP) | Script 01.2 | Inbound vs outbound, port test, STARTTLS, OAuth2 authentication, delivery check |
+| Account Lockout & Access | Script 01.3 | Locked account, unlock, lockout source in the Security log (local account stand-in) |
+| Print Services | Script 01.4 | Print Spooler, driver list, printer port |
 | Customer Communication | All 5 scripts | An urgent customer request and a reply in each script |
 
 ---
@@ -314,11 +313,11 @@ A recurring rule across the scripts: a fix is not done until it has been checked
 
 | Script | Verification Step |
 |---|---|
-| 01.1 DNS | Ping again, `nslookup` returns a valid IP, and the website loads |
-| 01.2 Email | Send a test email and confirm it is delivered |
-| 01.3 VPN | Reconnect with the current password and open internal resources |
-| 01.4 Printer | Send a test print and confirm the printer shows Ready |
-| 01.5 WiFi | Confirm a valid IP address, then load a website |
+| 01.1 DNS | `nslookup` returns a valid IP, and the website and the customer's store load |
+| 01.2 Email | Outbox is empty and the test email arrives in the recipient's Inbox |
+| 01.3 VPN | Account shows as unlocked and the lockout source is found. Access to internal resources is described, not tested |
+| 01.4 Printer | Printer queue shows "0 document(s) in queue" after the port fix. A test from another PC is described, not tested |
+| 01.5 WiFi | Valid IP address, `ping` to the gateway and `8.8.8.8` with 0% loss, and a website and presentation tool load |
 
 ---
 
@@ -327,11 +326,11 @@ A recurring rule across the scripts: a fix is not done until it has been checked
 
 | Script | Commands / Settings |
 |---|---|
-| 01.1 DNS | `ping 8.8.8.8` · `ping google.com` · `ipconfig /flushdns` · `nslookup google.com` |
-| 01.2 Email | Outgoing port (25 → 587 with TLS) · outgoing server authentication |
-| 01.3 VPN | Account status in the Active Directory console · unlock account |
-| 01.4 Printer | `services.msc` → Print Spooler → Restart · driver and firmware check |
-| 01.5 WiFi | `ipconfig /all` · `ipconfig /release` · `ipconfig /renew` · `ipconfig /flushdns` |
+| 01.1 DNS | `ping 8.8.8.8` · `ping google.com` · `ipconfig /all` · `ipconfig /flushdns` · `nslookup google.com` |
+| 01.2 Email | `Test-NetConnection smtp.gmail.com -Port 25` and `-Port 587` · SMTP port 587 with STARTTLS · authentication method OAuth2 |
+| 01.3 VPN | `net user` · `net accounts` · Local Users and Groups (`lusrmgr.msc`) · Event Viewer, Security log, event `4740` |
+| 01.4 Printer | `services.msc` → Print Spooler → Restart · Print Server Properties (Drivers tab) · printer port settings · `Get-Printer` |
+| 01.5 WiFi | `ipconfig /all` · `ipconfig /release` · `ipconfig /renew` · `netsh interface ip` · `ping` (`ipconfig /flushdns` described, not tested) |
 
 ---
 
@@ -340,20 +339,21 @@ A recurring rule across the scripts: a fix is not done until it has been checked
 
 | ❌ Scenario in the Script | ✅ Fix Shown |
 |---|---|
-| Every website shows "Server not found" while the network works | Clear the DNS cache and test name resolution |
-| Mail can be received but not sent | Correct the outgoing port and enable authentication |
-| VPN says "Authentication failed" with the right password | Unlock the locked account and update old saved passwords |
-| Printer shows Offline | Restart the Print Spooler and check the driver |
-| Connected to WiFi with no internet | Release and renew the IP address |
+| Every website shows "Server not found" while the network works | Read the DNS servers with `ipconfig /all`, correct them, then flush the cache and test with `nslookup` |
+| Mail can be received but not sent | Use a reachable port (587) with STARTTLS, then set authentication to OAuth2 |
+| VPN says "Authentication failed" with the right password | Unlock the locked account and find the lockout source in the Security log |
+| Printer shows an error instead of Ready | Restart the Print Spooler, check the driver, and correct the printer port |
+| Connected to WiFi with no internet | Set the adapter back to DHCP, then release and renew the IP address |
 
 ---
 
 <a id="scope-limitations"></a>
 ## 🚧 Scope & Limitations
 
-- **Simulated scenarios:** Each script is one role-played case, not a real customer ticket.
-- **Evidence lives in the labs:** Screenshots and recordings are in the related lab folder named in each script.
-- **Infrastructure varies:** Where a script mentions a VPN gateway, Active Directory or a print server, check the related lab to see what was actually reproduced.
+- **Simulated scenarios:** Each script is one role-played case, not a real customer ticket. The faults were created on purpose.
+- **Evidence:** Each script has its own `screenshots/` folder, and private data is covered with solid black boxes.
+- **Not the real infrastructure:** The VPN script used a local Windows account instead of Active Directory, and the VPN client was not linked to that account. The printer was a virtual printer with no physical device. The WiFi fault was set by hand with `netsh`.
+- **Described, not tested:** Items that were not done in the lab are marked "described, not tested" in each script (for example internal resource access in 01.3, firmware and another user's PC in 01.4, and `ipconfig /flushdns` in 01.5).
 - **One case per script:** Other causes of the same symptom are not covered. For example, "connected, no internet" can also come from an ISP outage or DNS.
 - **Not a company runbook:** Real workplaces need their own identity-verification and escalation rules.
 
@@ -364,12 +364,13 @@ These limits are stated here so the scripts are read as demonstrations, not as g
 <a id="what-i-learned"></a>
 ## 🧠 What I Learned
 
-- **Isolate the layer first.** A raw IP ping, an inbound mail check or a cable check narrows the problem fast.
+- **Isolate the layer first.** A raw IP ping, an inbound mail check or a printer status check narrows the problem fast.
 - **Change one thing at a time.** Otherwise the real cause stays unknown.
-- **Prove the fix.** A test email, a test print or a website load shows the fix worked.
-- **Fix the cause, not only the symptom.** An unlocked account or a renewed address can fail again if the source is not found.
+- **Prove the fix.** A test email, a queue check or a website load shows the fix worked.
+- **Fix the cause, not only the symptom.** An unlocked account or a renewed address can fail again if the source is not found, and flushing a cache does not help when the DNS server itself is wrong.
+- **Read the exact error.** A changed error message shows what the last change did.
 - **Talk to the customer.** Every scenario has an urgent request, and a clear, honest reply is part of the job.
-- **Simple checks come first.** They rule out many causes cheaply.
+- **Say what was not tested.** Marking steps "described, not tested" keeps the evidence honest.
 
 ---
 
@@ -377,11 +378,12 @@ These limits are stated here so the scripts are read as demonstrations, not as g
 ## 🛠️ Skills Demonstrated
 
 - Diagnosing DNS and DHCP problems with `ping`, `nslookup` and `ipconfig`
-- Troubleshooting outgoing email settings (port, encryption, authentication)
-- Handling account lockouts and VPN authentication errors
-- Managing the Print Spooler service and checking drivers
+- Troubleshooting outgoing email (port test, STARTTLS, OAuth2)
+- Handling account lockouts and reading the Security log (event 4740)
+- Managing the Print Spooler service, checking drivers and printer ports
 - Building clear decision-path diagrams for common tickets
 - Writing customer replies for urgent support requests
+- Documenting limits honestly and hiding private data in evidence
 - Turning each case into a repeatable, read-aloud script
 
 ---
